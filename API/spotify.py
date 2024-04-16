@@ -1,11 +1,15 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
-from API.genres import categorize_genre, genre_classification
+from genres import categorize_genre, genre_classification
 import time
+from dotenv import load_dotenv
+import os
 
-cid = 'f4602a7273ef46bd81f5e718a801ee6a'
-secret = '13f555c14d4a414db85af16647e1a785'
+load_dotenv()
+
+cid = os.getenv('CID')
+secret = os.getenv('SECRET')
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
 spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
