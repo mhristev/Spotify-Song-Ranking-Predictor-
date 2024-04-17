@@ -61,10 +61,10 @@ genre_classification["Rap/Hip Hop"].append('k-rap')
 genre_classification["R&B/Soul"].append('korean r&b')
 genre_classification["Pop"].extend(['korean pop', 'turkish pop'])
 
+
 def categorize_genre(genre):
     for category, genres_in_category in genre_classification.items():
         if genre in genres_in_category:
             return category
     print(genre)
     return 'Miscellaneous/Unique'
-

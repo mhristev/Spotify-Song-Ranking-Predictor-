@@ -47,17 +47,19 @@ def create_genre_columns(df):
         df[category] = 0
     
 def classify_genres_of_track(df):
-    print("Classifying genres of tracks...")
+    counter = 0
     for sp_id in df['spotify_id']:
+        print(f'Processed {counter} tracks')
         genres = get_genres(sp_id)
         time.sleep(1)
+        counter += 1
         for genre in genres:
             category = categorize_genre(genre)
             df.loc[df['spotify_id'] == sp_id, category] = 1
 
 
 def main():
-    df = pd.read_csv('../raw_data/universal_top_spotify_songs_2.csv')
+    df = pd.read_csv('../raw_data/universal_top_spotify_songs.csv')
     
     prepare_dataset(df)
     create_genre_columns(df)
