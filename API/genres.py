@@ -66,5 +66,5 @@ def categorize_genre(genre):
     for category, genres_in_category in genre_classification.items():
         if genre in genres_in_category:
             return category
-    print(genre)
+    
     return 'Miscellaneous/Unique'
